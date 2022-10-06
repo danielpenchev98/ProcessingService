@@ -13,6 +13,8 @@ type ContentBuilder interface {
 	String() (string, error)
 }
 
+
+// Builder pattern for bash script content creation
 type BashContentBuilder struct {
 	content []string
 }
@@ -25,11 +27,13 @@ func (BashContentBuilderCreator) Create() ContentBuilder {
 	}
 }
 
+// Adds the next command in the script
 func (b *BashContentBuilder) AddCommand(cmd string) ContentBuilder {
 	b.content = append(b.content, cmd)
 	return b
 }
 
+// Builds the content of the bash script
 func (b *BashContentBuilder) String() (string, error) {
 	builder := strings.Builder{}
 	for _, cmd := range b.content {

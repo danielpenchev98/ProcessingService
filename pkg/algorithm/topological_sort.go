@@ -10,6 +10,7 @@ const (
 	fullyVisited = 1 // all of his neightbours are fully visited and the current node is visited
 )
 
+// Algorithm for sorting graph nodes such that every node V in the sequence is dependent only on some of the previous nodes in the sequence 
 type TopologicalSort struct{}
 
 func (TopologicalSort) Apply(taskGraph Graph) ([]string, error) {

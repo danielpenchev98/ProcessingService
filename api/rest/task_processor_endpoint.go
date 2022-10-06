@@ -18,6 +18,7 @@ type ContentCreator interface {
 	Create(tasks []model.Task) (string, error)
 }
 
+// Endpoint used for creation of execution plan and bash script content
 type TaskProcessorEndpoint struct {
 	scheduler Scheduler
 	creator   ContentCreator
@@ -30,6 +31,7 @@ func NewTaskProcessorEndpoint(scheduler Scheduler, creator ContentCreator) *Task
 	}
 }
 
+// Creation of execution plan
 func (e *TaskProcessorEndpoint) CreateProcessingPlan(c *gin.Context) {
 	var content RequestPayload
 	if err := c.ShouldBindJSON(&content); err != nil {
@@ -57,6 +59,7 @@ func (e *TaskProcessorEndpoint) CreateProcessingPlan(c *gin.Context) {
 	})
 }
 
+// Creation of bash content 
 func (e *TaskProcessorEndpoint) GenerateBashContent(c *gin.Context) {
 	var content RequestPayload
 	if err := c.ShouldBindJSON(&content); err != nil {

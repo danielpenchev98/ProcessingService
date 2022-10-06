@@ -13,6 +13,7 @@ type Graph interface {
 	GetParents(string) ([]string, error)
 }
 
+// Used to represent the set of tasks as a graph
 type DependencyGraph struct {
 	nodes       []string
 	parents map[string][]string
@@ -55,6 +56,7 @@ func (DependencyGraphCreator) Create(tasks []model.Task) (Graph, error) {
 	}, nil
 }
 
+// Getting dependencies of a particular task
 func (g *DependencyGraph) GetParents(nodeName string) ([]string, error) {
 	if _, ok := g.parents[nodeName]; !ok {
 		return nil, myerrors.NewClientError(fmt.Sprintf("dependency [%s] not found", nodeName))
@@ -62,6 +64,7 @@ func (g *DependencyGraph) GetParents(nodeName string) ([]string, error) {
 	return g.parents[nodeName], nil
 }
 
+// Getting all nodes from the graph
 func (g *DependencyGraph) GetNodes() []string {
 	var result []string
 	return append(result, g.nodes...)

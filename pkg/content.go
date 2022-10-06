@@ -7,10 +7,12 @@ import (
 )
 
 //go:generate mockgen --source=content.go --destination pkg_mocks/content.go --package pkg_mocks
+// Creates builder for script content
 type ContentBuilderCreator interface {
 	Create() script.ContentBuilder
 }
 
+// Manages the execution of functions of the script builder
 type ContentCreator struct {
 	builderCreator ContentBuilderCreator
 }
@@ -21,6 +23,7 @@ func NewContentCreator(contentBuilderFactory ContentBuilderCreator) *ContentCrea
 	}
 }
 
+// Creates script content via the usage of particular script builder
 func (c *ContentCreator) Create(tasks []model.Task) (string, error) {
 	if tasks == nil {
 		return "", myerrors.NewServerError("invalid tasks array supplied")
