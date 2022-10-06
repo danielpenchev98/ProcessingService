@@ -1,0 +1,11 @@
+{
+    "tasks":[
+        {
+            "name":"task-1",
+            "command":"cmd1",
+            "requires":[
+                "task-2"
+            ]
+        }
+    ]
+}

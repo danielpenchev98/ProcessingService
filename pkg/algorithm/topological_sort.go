@@ -30,7 +30,7 @@ func (TopologicalSort) Apply(taskGraph Graph) ([]string, error) {
 func dfs(taskName string, graph Graph, visited map[string]int) ([]string, error) {
 	if state, ok := visited[taskName]; ok {
 		if state == halfVisited {
-			return nil, myerrors.NewClientError("cyclic depencency detected")
+			return nil, myerrors.NewClientError("cyclic dependency detected")
 		}
 		return []string{}, nil
 	}

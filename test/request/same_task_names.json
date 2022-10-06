@@ -1,0 +1,12 @@
+{
+    "tasks": [
+        {
+            "name": "task-1",
+            "command": "cmd1"
+        },
+        {
+            "name": "task-1",
+            "command": "cmd1"
+        }
+    ]
+}

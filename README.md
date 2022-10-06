@@ -48,7 +48,13 @@ docker run -p8080:8080 <image_name>
 
 ## Running tests
 ```bash
-# Execute it in web-server directory
+# Execute the command from the root directory
+
+# the following command generates the mocks
+go generate ./...
+
+# Would need docker running on host
+# the following command starts the tests
 ginkgo ./...
 ```
 

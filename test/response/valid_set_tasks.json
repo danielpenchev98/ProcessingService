@@ -1,0 +1,1 @@
+{"status":200,"tasks":[{"name":"task-1","command":"touch /tmp/file1"},{"name":"task-3","command":"echo 'Hello World!' \u003e /tmp/file1"},{"name":"task-2","command":"cat /tmp/file1"},{"name":"task-4","command":"rm /tmp/file1"}]}
